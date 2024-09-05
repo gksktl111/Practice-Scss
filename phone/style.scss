@@ -1,0 +1,195 @@
+@import "../styles/reset";
+
+body {
+  display: flex;
+  height: 100vh;
+
+  justify-content: center;
+  align-items: center;
+
+}
+
+.back__container{
+  position: absolute;
+  width: 315px;
+  height: 610px;
+
+  background-color: #3b3b3b;
+  border-radius: 50px 50px 70px 50px;
+
+  padding: 30px;
+
+  transform: skew(5deg, 0);
+
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  margin-top: 20px;
+  margin-right: 15px;
+}
+
+.container {
+  width: 300px;
+  height: 600px;
+
+  background-color: black;
+  border-radius: 50px;
+
+  padding: 30px;
+  overflow: hidden; /* 컨테이너 밖으로 넘치는 것을 방지 */
+
+  transform: skew(5deg, 0);
+
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.header {
+  overflow-x: scroll;
+  margin-top: 25px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header__list {
+    display: flex;
+    gap: 10px;
+    width: max-content;
+
+    .header__list-item {
+      display: flex;
+
+      color: white;
+      background-color: black;
+
+      border: 2px solid white;
+      border-radius: 15px;
+
+      list-style-type: none;
+      padding: 5px 10px;
+
+      transition: all 0.2s ease-in;
+      cursor: pointer;
+
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+    }
+  }
+}
+
+@mixin card($bgColor, $fontColor) {
+  border-radius: 10px;
+  padding: 10px;
+  color: $fontColor;
+  background-color: $bgColor;
+  cursor: pointer;
+  font-size: 28px;
+  @content
+}
+
+@mixin btn($priceBg, $priceColor, $lengthBg) {
+  .card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 20px;
+    border: 2px solid black;
+    background-color: $priceBg;
+    color: $priceColor;
+    padding: 5px 10px;
+
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .length {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 2px solid black;
+    background-color: $lengthBg;
+    color: #010101;
+    padding: 5px 10px;
+
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 150px);
+
+  gap: 10px;
+  margin-top: 25px;
+
+  overflow-y: auto;
+  max-height: calc(100% - 115px);
+
+  font-family: "Times New Roman";
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cards__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:nth-child(1) {
+      @include card(#292D33, #FCFCFC);
+      @include btn(#F9FDC0, black, white);
+    }
+
+    &:nth-child(2) {
+      @include card(#FCFCFA, #010101);
+      @include btn(yellow, black, white);
+    }
+
+    &:nth-child(3) {
+      @include card(#F9FDC0, #010101) {
+        grid-column-start: 1;
+        grid-column-end: -1;
+
+        font-size: 36px;
+      }
+      @include btn(#de76de, white, white);
+
+    }
+
+    &:nth-child(4) {
+      @include card(#B6A4F7, #010101);
+      @include btn(yellow, black, white);
+    }
+
+    &:nth-child(5) {
+      @include card(#FFD4D4, #010101);
+      @include btn(#de76de, white, white);
+    }
+
+    &:nth-child(6) {
+      @include card(#CFFFDC, #010101) {
+        grid-column-start: 1;
+        grid-column-end: -1;
+
+        font-size: 36px;
+      }
+
+      @include btn(#36d75a, white, white);
+    }
+  }
+
+
+}
