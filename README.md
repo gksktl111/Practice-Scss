@@ -2,3 +2,6 @@
 
 # 과제 1
 ![image](https://github.com/user-attachments/assets/89efaa5b-5d2e-4b0c-a13b-baf1d9dd3ae4)
+
+# 과제 2
+![img.png](img.png)
