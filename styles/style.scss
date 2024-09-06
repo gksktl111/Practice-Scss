@@ -18,7 +18,7 @@ body {
 
   border-radius: 10px;
 
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0 15px 12px;
 }
 
 .header {
@@ -55,13 +55,11 @@ body {
 
   font-weight: bold;
 
-  .total__price {
+  .total__price,
+  .total__subtitle{
     font-size: 24px;
   }
 
-  .total__subtitle {
-    font-size: 12px;
-  }
 }
 
 .items {
